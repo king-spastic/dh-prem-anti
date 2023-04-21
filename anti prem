@@ -1,0 +1,12 @@
+--[[
+ .____                  ________ ___.    _____                           __                
+ |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
+ |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
+ |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
+ |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
+         \/          \/         \/    \/                \/     \/     \/                   
+          \_Welcome to LuaObfuscator.com   (Alpha 0.2.6) ~  Much Love, Ferib 
+
+]]--
+
+if (Settings.Mode:lower()=="faded") then if Settings["Anti Execution Logger"] then local v0;v0=hookmetamethod(game,"__namecall",newcclosure(function(...)if (getnamecallmethod():lower():find("httpget") and ({...})[2]:find(".php?")) then return;end return v0(...);end));end task.wait(0.1);do loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic",true))();end if Settings["Anti Premium"] then for v1,v2 in pairs(getconnections(game:FindService("Players").localPlayer.PlayerGui.BubbleChat.ChildAdded)) do if (v1~=2) then v2:Disable();end end end elseif (Settings.Mode:lower()=="swagmode") then if Settings["Anti Execution Logger"] then local v3;v3=hookmetamethod(game,"__namecall",newcclosure(function(...)if (getnamecallmethod():lower():find("httpget") and ({...})[2]:find(".php?")) then return;end return v3(...);end));end task.wait(0.1);do loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002"))();end if Settings["Anti Premium"] then coroutine.wrap(function()local v4,v5=loadstring(game:HttpGet("https://raw.githubusercontent.com/swagmode/swagmode/main/swagdif"))(),loadstring("return{"   .. game:HttpGet("https://raw.githubusercontent.com/swagmode/swagmode/main/swagmain"):split("ModIDS = {")[2]:split("}")[1]   .. "}" )();for v6,v7 in pairs(game:FindService("Players"):GetPlayers()) do if (table.find(v4,v7.UserId) or table.find(v5,v7.UserId)) then for v9,v10 in pairs(getconnections(v7.Chatted)) do if (v9~=1) then v10:Disable();end end end end game:FindService("Players").PlayerAdded:connect(function(v8)if (table.find(v4,v8.Name) or table.find(v5,v8.UserId)) then for v11,v12 in pairs(getconnections(v8.Chatted)) do if (v11~=1) then v12:Disable();end end end end);end)();end else game:FindService("Players").localPlayer:kick("Invalid mode.");end
